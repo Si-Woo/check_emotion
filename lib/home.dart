@@ -22,6 +22,7 @@ class _HomeState extends State<Home> {
     final emotionCounter = Provider.of<EmotionCounter>(context);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Row(
         children: [
           Expanded(

@@ -10,6 +10,7 @@ class ResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final emotionCounter = Provider.of<EmotionCounter>(context);
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

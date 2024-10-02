@@ -41,8 +41,8 @@ class MyApp extends StatelessWidget {
       //   useMaterial3: true,
       // ),
       debugShowCheckedModeBanner: false,
-      home: const Home(),
-      // initialRoute: '/voting',
+      // home: const Home(),
+      initialRoute: '/voting',
       routes: {
         '/voting': (context) => const Home(),
         '/result': (context) => const ResultPage(),

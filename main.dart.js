@@ -32874,7 +32874,7 @@ A.WR.prototype={
 $1(a){return new A.fs($.aG())},
 $S:117}
 A.xn.prototype={
-R(a){return new A.p3(A.at(["/check_emotion",new A.MV(),"/result",new A.MW()],t.N,t.hw),"/check_emotion",!1,null)}}
+R(a){return new A.p3(A.at(["/voting",new A.MV(),"/result",new A.MW()],t.N,t.hw),"/voting",!1,null)}}
 A.MV.prototype={
 $1(a){return B.xq},
 $S:118}

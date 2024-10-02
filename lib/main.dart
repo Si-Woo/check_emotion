@@ -42,9 +42,9 @@ class MyApp extends StatelessWidget {
       // ),
       debugShowCheckedModeBanner: false,
       // home: const Home(),
-      initialRoute: '/voting',
+      initialRoute: '/check_emotion',
       routes: {
-        '/voting': (context) => const Home(),
+        '/check_emotion': (context) => const Home(),
         '/result': (context) => const ResultPage(),
       },
     );

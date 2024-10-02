@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/voting',
       routes: {
         '/voting': (context) => const Home(),
-        '/result': (context) => const ResultPage(),
+        // '/result': (context) => ResultPage(),
       },
     );
   }

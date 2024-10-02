@@ -1,4 +1,5 @@
 import 'package:check_emotion/provider.dart';
+import 'package:check_emotion/result_page.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +24,27 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        actions: [
+          GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ResultPage(
+                              angry: angryCount,
+                              sad: sadCount,
+                              confused: confusedCount,
+                              full: fullCount,
+                              efficiency: efficiencyCount,
+                            )));
+              },
+              child: Icon(
+                Icons.abc,
+                color: Colors.yellow,
+              ))
+        ],
+      ),
       body: Row(
         children: [
           Expanded(
@@ -32,6 +54,7 @@ class _HomeState extends State<Home> {
               children: [
                 InkWell(
                   onTap: () {
+                    angryCount++;
                     emotionCounter.incrementAngry();
                   },
                   child: const Text(
@@ -53,6 +76,7 @@ class _HomeState extends State<Home> {
               children: [
                 InkWell(
                   onTap: () {
+                    sadCount++;
                     emotionCounter.incrementSad();
                   },
                   child: const Text(
@@ -74,6 +98,7 @@ class _HomeState extends State<Home> {
               children: [
                 InkWell(
                   onTap: () {
+                    confusedCount++;
                     emotionCounter.incrementConfused();
                   },
                   child: const Text(
@@ -95,6 +120,7 @@ class _HomeState extends State<Home> {
               children: [
                 InkWell(
                   onTap: () {
+                    fullCount++;
                     emotionCounter.incrementFull();
                   },
                   child: const Text(
@@ -116,6 +142,7 @@ class _HomeState extends State<Home> {
               children: [
                 InkWell(
                   onTap: () {
+                    efficiencyCount++;
                     emotionCounter.incrementEfficiency();
                   },
                   child: const Text(

@@ -4,7 +4,15 @@ import 'package:provider/provider.dart';
 import 'provider.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({super.key});
+  final int angry, sad, confused, full, efficiency;
+  const ResultPage({
+    super.key,
+    required this.angry,
+    required this.sad,
+    required this.confused,
+    required this.full,
+    required this.efficiency,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,23 +24,23 @@ class ResultPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "스트레스 카운트: ${emotionCounter.angryCount}",
+              "스트레스 카운트: $angry",
               style: const TextStyle(fontSize: 20),
             ),
             Text(
-              "슬픔 카운트: ${emotionCounter.sadCount}",
+              "슬픔 카운트: $sad",
               style: const TextStyle(fontSize: 20),
             ),
             Text(
-              "헷갈림 카운트: ${emotionCounter.confusedCount}",
+              "헷갈림 카운트: $confused",
               style: const TextStyle(fontSize: 20),
             ),
             Text(
-              "충만 카운트: ${emotionCounter.fullCount}",
+              "충만 카운트: $full",
               style: const TextStyle(fontSize: 20),
             ),
             Text(
-              "효율감 카운트: ${emotionCounter.efficiencyCount}",
+              "효율감 카운트: $efficiency",
               style: const TextStyle(fontSize: 20),
             ),
           ],

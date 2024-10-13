@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import 'provider.dart';
 
 class ResultPage extends StatelessWidget {
   final int angry, sad, confused, full, efficiency;
@@ -16,7 +13,6 @@ class ResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final emotionCounter = Provider.of<EmotionCounter>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(

@@ -1,16 +1,8 @@
 import 'package:check_emotion/home.dart';
-import 'package:check_emotion/provider.dart';
-import 'package:check_emotion/result_page.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 void main() {
-  runApp(
-    ChangeNotifierProvider(
-      create: (context) => EmotionCounter(),
-      child: const MyApp(),
-    ),
-  );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

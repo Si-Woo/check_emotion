@@ -1,6 +1,4 @@
-import 'package:check_emotion/provider.dart';
 import 'package:check_emotion/result_page.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -11,24 +9,28 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  // 각 이모지의 클릭 카운트를 관리할 변수
   int angryCount = 0;
   int sadCount = 0;
   int confusedCount = 0;
   int fullCount = 0;
   int efficiencyCount = 0;
 
+  // 각각의 이모지 클릭 시 애니메이션 효과를 위한 변수
+  double _scaleAngry = 1.0;
+  double _scaleSad = 1.0;
+  double _scaleConfused = 1.0;
+  double _scaleFull = 1.0;
+  double _scaleEfficiency = 1.0;
+
   @override
   Widget build(BuildContext context) {
-    final emotionCounter = Provider.of<EmotionCounter>(context);
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         actions: [
-          GestureDetector(
-              onTap: () {
+          TextButton(
+              onPressed: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -40,10 +42,7 @@ class _HomeState extends State<Home> {
                               efficiency: efficiencyCount,
                             )));
               },
-              child: Icon(
-                Icons.abc,
-                color: Colors.yellow,
-              ))
+              child: const Text("결과보기"))
         ],
       ),
       body: Row(
@@ -53,14 +52,23 @@ class _HomeState extends State<Home> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                InkWell(
+                GestureDetector(
                   onTap: () {
-                    angryCount++;
-                    emotionCounter.incrementAngry();
+                    setState(() {
+                      angryCount++;
+                      _scaleAngry = 2;
+                    });
+                    // 애니메이션 효과 후 원래 크기로 돌아오게
+                    Future.delayed(const Duration(milliseconds: 200), () {
+                      setState(() {
+                        _scaleAngry = 1.0;
+                      });
+                    });
                   },
-                  child: const Text(
-                    "\u{1F621}",
-                    style: TextStyle(fontSize: 200),
+                  child: AnimatedScale(
+                    scale: _scaleAngry,
+                    duration: const Duration(milliseconds: 200),
+                    child: Image.asset('images/stress.png'),
                   ),
                 ),
                 const Text(
@@ -75,14 +83,22 @@ class _HomeState extends State<Home> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                InkWell(
+                GestureDetector(
                   onTap: () {
-                    sadCount++;
-                    emotionCounter.incrementSad();
+                    setState(() {
+                      sadCount++;
+                      _scaleSad = 2;
+                    });
+                    Future.delayed(const Duration(milliseconds: 200), () {
+                      setState(() {
+                        _scaleSad = 1.0;
+                      });
+                    });
                   },
-                  child: const Text(
-                    "\u{1F62D}",
-                    style: TextStyle(fontSize: 200),
+                  child: AnimatedScale(
+                    scale: _scaleSad,
+                    duration: const Duration(milliseconds: 200),
+                    child: Image.asset('images/sad.png'),
                   ),
                 ),
                 const Text(
@@ -97,14 +113,22 @@ class _HomeState extends State<Home> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                InkWell(
+                GestureDetector(
                   onTap: () {
-                    confusedCount++;
-                    emotionCounter.incrementConfused();
+                    setState(() {
+                      confusedCount++;
+                      _scaleConfused = 2;
+                    });
+                    Future.delayed(const Duration(milliseconds: 200), () {
+                      setState(() {
+                        _scaleConfused = 1.0;
+                      });
+                    });
                   },
-                  child: const Text(
-                    "\u{1F914}",
-                    style: TextStyle(fontSize: 200),
+                  child: AnimatedScale(
+                    scale: _scaleConfused,
+                    duration: const Duration(milliseconds: 200),
+                    child: Image.asset('images/question.png'),
                   ),
                 ),
                 const Text(
@@ -119,14 +143,22 @@ class _HomeState extends State<Home> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                InkWell(
+                GestureDetector(
                   onTap: () {
-                    fullCount++;
-                    emotionCounter.incrementFull();
+                    setState(() {
+                      fullCount++;
+                      _scaleFull = 2;
+                    });
+                    Future.delayed(const Duration(milliseconds: 200), () {
+                      setState(() {
+                        _scaleFull = 1.0;
+                      });
+                    });
                   },
-                  child: const Text(
-                    "\u{1F917}",
-                    style: TextStyle(fontSize: 200),
+                  child: AnimatedScale(
+                    scale: _scaleFull,
+                    duration: const Duration(milliseconds: 200),
+                    child: Image.asset('images/heart.png'),
                   ),
                 ),
                 const Text(
@@ -141,14 +173,22 @@ class _HomeState extends State<Home> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                InkWell(
+                GestureDetector(
                   onTap: () {
-                    efficiencyCount++;
-                    emotionCounter.incrementEfficiency();
+                    setState(() {
+                      efficiencyCount++;
+                      _scaleEfficiency = 2;
+                    });
+                    Future.delayed(const Duration(milliseconds: 200), () {
+                      setState(() {
+                        _scaleEfficiency = 1.0;
+                      });
+                    });
                   },
-                  child: const Text(
-                    "\u{1F603}",
-                    style: TextStyle(fontSize: 200),
+                  child: AnimatedScale(
+                    scale: _scaleEfficiency,
+                    duration: const Duration(milliseconds: 200),
+                    child: Image.asset('images/ballons.png'),
                   ),
                 ),
                 const Text(
